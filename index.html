@@ -33,6 +33,33 @@
 </head>
 <body>
     <p>If you are not redirected, <a href="https://ljulmy.github.io/Test/">click here</a>.</p>
+    
+    <!-- Consent Management -->
+    <button id="accept-consent">Accept Consent</button>
+    <button id="decline-consent">Decline Consent</button>
+
+    <script>
+        function setConsent(consentGiven) {
+            if (consentGiven) {
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted'
+                });
+            } else {
+                gtag('consent', 'update', {
+                    'ad_storage': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            }
+        }
+
+        document.getElementById('accept-consent').addEventListener('click', function() {
+            setConsent(true);
+        });
+        document.getElementById('decline-consent').addEventListener('click', function() {
+            setConsent(false);
+        });
+    </script>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXFHL3MM"
